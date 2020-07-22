@@ -22,7 +22,7 @@ CORS(app)
 
 @app.route('/')
 def index():
-    return 'HELLO WORLD'
+    return app.send_static_file('index.html')
 
 @app.route("/api/text", methods=['POST'])
 def analyzeText():
@@ -75,6 +75,5 @@ def get_twitter(query):
 
 if __name__ == "__main__":
 
-    app.run(host='0.0.0.0', debug=False, port = int(os.environ.get('PORT', 80)))
-
+    app.run(host='0.0.0.0')
 
