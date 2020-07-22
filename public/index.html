@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentiment Analyzer</title>
+  <link rel="icon" href="%PUBLIC_URL%/icon.png" />
+</head>
+
+<body style="background-color: #14171A;">
+  <div style="min-height: 150vh; min-width: 100vw;" id="birds">
+    <div class="App" id="app"></div>
+  </div>
+  <script src="%PUBLIC_URL%/three.r95.min.js"></script>
+  <script src="%PUBLIC_URL%/vanta.birds.min.js"></script>
+  <script>
+    VANTA.BIRDS({
+      el: "#birds",
+      mouseControls: true,
+      touchControls: true,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      backgroundColor: 0x14171A,
+      color1: 0x1da1f2,
+      color2: 0x00000,
+      birdSize: 1.50,
+      speedLimit: 5.00,
+      separation: 100.00,
+      cohesion: 5.00,
+      quantity: 5.0
+    })
+  </script>
+</body>
+
+</html>
