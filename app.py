@@ -18,7 +18,6 @@ p.set_options(p.OPT.URL, p.OPT.MENTION, p.OPT.HASHTAG)
 analyzer = SentimentIntensityAnalyzer()
 
 app = Flask(__name__, static_folder='./build', static_url_path='/')
-CORS(app)
 
 @app.route('/')
 def index():
@@ -49,7 +48,7 @@ def get_text(sentence):
 
 def get_twitter(query):
     data = []
-    for days in range(8, -2, -1):
+    for days in range(7, -2, -1):
         results = api.search(q=query, lang='en', count=100, tweet_mode='extended', until=datetime.strftime(datetime.now() - timedelta(days), '%Y-%m-%d'))
         if len(results) == 0:
             return 0
