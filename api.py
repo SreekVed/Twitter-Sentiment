@@ -1,10 +1,10 @@
 import os
+from datetime import datetime, timedelta
+
 import preprocessor as p
 import tweepy
 from flask import Flask, jsonify, request
-from flask_cors import CORS
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-from datetime import datetime, timedelta
 
 consumer_key = 'AUryhn3wkGXM2pX6Gdjfippe0'
 consumer_secret = 'pBk4RNJtFFdw9UZ33DcFeSxMycTlgqqG8MTT2TpJgrhvwvuALv'
@@ -19,9 +19,11 @@ analyzer = SentimentIntensityAnalyzer()
 
 app = Flask(__name__, static_folder='./build', static_url_path='/')
 
+
 @app.route('/')
 def index():
     return app.send_static_file('index.html')
+
 
 @app.route("/api/text", methods=['POST'])
 def analyzeText():
@@ -49,7 +51,8 @@ def get_text(sentence):
 def get_twitter(query):
     data = []
     for days in range(7, -2, -1):
-        results = api.search(q=query, lang='en', count=100, tweet_mode='extended', until=datetime.strftime(datetime.now() - timedelta(days), '%Y-%m-%d'))
+        results = api.search(q=query, lang='en', count=100, tweet_mode='extended',
+                             until=datetime.strftime(datetime.now() - timedelta(days), '%Y-%m-%d'))
         if len(results) == 0:
             return 0
         sentiments = [0, 0, 0]
@@ -67,13 +70,10 @@ def get_twitter(query):
             else:
                 sentiments[1] += 1
 
-        data += [datetime.strftime(datetime.now() - timedelta(days+1), '%B %d'),
-                 sentiments[0]/size, sentiments[1]/size, sentiments[2]/size]
+        data += [datetime.strftime(datetime.now() - timedelta(days + 1), '%B %d'),
+                 sentiments[0] / size, sentiments[1] / size, sentiments[2] / size]
     return data
-	
+
 
 if __name__ == "__main__":
-
-    app.run(host='0.0.0.0', debug=False, port = int(os.environ.get('PORT', 80)))
-
-
+    app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))
