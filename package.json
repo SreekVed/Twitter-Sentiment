@@ -13,14 +13,12 @@
       "react-scripts":"3.4.1",
       "serve":"^11.3.2"
    },
-   "scripts":{
-      "dev":"react-scripts start",
-      "start":"serve -s build",
-      "start-api":"cd api && venv/Scripts/flask run --no-debugger",
-      "build":"react-scripts build",
-      "test":"react-scripts test",
-      "eject":"react-scripts eject"
-   },
+   "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
    "eslintConfig":{
       "extends":"react-app"
    },
@@ -38,6 +36,5 @@
    },
    "devDependencies":{
       "dotenv":"^8.2.0"
-   },
-   "proxy":"http://localhost:5000"
+   }
 }
