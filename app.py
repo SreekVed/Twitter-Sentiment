@@ -20,9 +20,9 @@ analyzer = SentimentIntensityAnalyzer()
 app = Flask(__name__, static_folder='./build', static_url_path='/')
 CORS(app)
 
-@app.route('/', methods=["GET"])
+@app.route('/')
 def index():
-    return app.send_static_file('index.html')
+    return 'HELLO WORLD'
 
 @app.route("/api/text", methods=['POST'])
 def analyzeText():
@@ -32,11 +32,6 @@ def analyzeText():
 @app.route("/api/twitter", methods=['POST'])
 def analyzeTwitter():
     return jsonify(get_twitter(request.json))
-
-
-if __name__ == "__main__":
-
-    app.run(host='0.0.0.0', debug=False, port = int(os.environ.get('PORT', 5000)))
 
 
 def get_text(sentence):
@@ -76,3 +71,10 @@ def get_twitter(query):
         data += [datetime.strftime(datetime.now() - timedelta(days+1), '%B %d'),
                  sentiments[0]/size, sentiments[1]/size, sentiments[2]/size]
     return data
+	
+
+if __name__ == "__main__":
+
+    app.run(host='0.0.0.0', debug=False, port = int(os.environ.get('PORT', 80)))
+
+
