@@ -1,10 +1,9 @@
-import os
 import preprocessor as p
 import tweepy
 from flask import Flask, jsonify, request
-from flask_cors import CORS
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from datetime import datetime, timedelta
+import os
 
 consumer_key = 'AUryhn3wkGXM2pX6Gdjfippe0'
 consumer_secret = 'pBk4RNJtFFdw9UZ33DcFeSxMycTlgqqG8MTT2TpJgrhvwvuALv'
@@ -18,7 +17,7 @@ p.set_options(p.OPT.URL, p.OPT.MENTION, p.OPT.HASHTAG)
 analyzer = SentimentIntensityAnalyzer()
 
 app = Flask(__name__, static_folder='./build', static_url_path='/')
-CORS(app)
+
 
 @app.route('/')
 def index():
