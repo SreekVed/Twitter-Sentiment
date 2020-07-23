@@ -6,10 +6,10 @@ import tweepy
 from flask import Flask, jsonify, request
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-consumer_key = '???'
-consumer_secret = '???'
-access_token = '???'
-access_token_secret = '???'
+consumer_key = 'AUryhn3wkGXM2pX6Gdjfippe0'
+consumer_secret = 'pBk4RNJtFFdw9UZ33DcFeSxMycTlgqqG8MTT2TpJgrhvwvuALv'
+access_token = '1274734142668840961-es74zzvfHQUQRV9DNyecwro4gVwh0H'
+access_token_secret = 'uICSRUMQTTSGosbipck6MNds2dQL7dO55VHzeXRbauvjj'
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
