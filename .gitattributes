@@ -1,2 +1,2 @@
-*.css linguist-language=HTML
+*.css linguist-detectable=false
 *.flaskenv linguist-detectable=false
